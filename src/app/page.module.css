@@ -36,6 +36,13 @@
   padding: 1rem;
 }
 
+.spinner {
+  display: flex;
+  justify-content: center;
+  color: #5599a3;
+  scale: 1.5;
+}
+
 @media (max-width: 640px) {
   .container {
     width: 95vw;

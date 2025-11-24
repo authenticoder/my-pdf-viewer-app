@@ -3,6 +3,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
+import styles from "../app/page.module.css";
+
+import Spinner from "./Spinner";
+
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url
@@ -35,7 +39,9 @@ function LazyPage({ pageNumber, width }) {
           renderAnnotationLayer={false}
         />
       ) : (
-        <div>Loading page {pageNumber}...</div>
+        <div className={styles.spinner}>
+          <Spinner />
+        </div>
       )}
     </div>
   );
@@ -71,7 +77,7 @@ export default function PDFViewer({ file }) {
         margin: "auto",
         padding: "1rem",
         overflowY: "auto", // enable scroll inside this container
-        border: "1px solid #ccc",
+        border: "1px solid #5599a3",
         boxSizing: "border-box",
       }}
     >
